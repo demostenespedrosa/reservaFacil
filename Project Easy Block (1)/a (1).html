@@ -1,0 +1,420 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Plataforma</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+    <style>
+  /* Animação para o fundo com gradiente */
+/* Fundo com gradiente branco para azul */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+body {
+  background: linear-gradient(135deg, #ffffff, #6fa3ef); /* Gradiente suave de branco para azul */
+  background-size: cover;
+  background-attachment: fixed; /* O fundo não se move quando rola a página */
+  font-family: 'Poppins', sans-serif;
+  color: #fff;
+  transition: all 0.3s ease-in-out; /* Suavização para qualquer transição */
+  animation: fadeIn 2s ease-out; /* Animação de fade-in para o fundo */
+}
+
+/* Estilo da navbar */
+nav {
+  background-color: rgba(248, 243, 243, 0.9); /* Cor clara com transparência */
+  border-bottom: 2px solid #fff;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1); /* Adiciona sombra suave */
+  transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Efeitos de transição */
+}
+
+nav:hover {
+  background-color: rgba(248, 243, 243, 1); /* Escurece a cor da navbar ao passar o mouse */
+  box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.2); /* Aumenta a sombra */
+}
+
+/* Marca da Navbar com animação */
+.navbar-brand {
+  font-size: 2rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  position: relative;
+  display: inline-block;
+  transition: all 0.3s ease;
+}
+
+.navbar-brand:hover {
+  color: #1e2b3c; /* Muda para azul escuro quando o mouse passa */
+}
+
+.navbar-brand:hover::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #fff;
+  animation: slideIn 0.3s forwards;
+}
+
+@keyframes slideIn {
+  0% {
+    width: 0;
+    left: 50%;
+  }
+  100% {
+    width: 100%;
+    left: 0;
+  }
+}
+
+/* Botões primários */
+.btn-primary {
+  background-color: #1e2b3c;
+  border: 1px solid #fff;
+  padding: 10px 20px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 5px;
+  transition: background-color 0.3s ease, transform 0.3s ease; /* Efeito de transição suave */
+}
+
+.btn-primary::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 300%;
+  height: 300%;
+  background-color: #2b3e54;
+  transition: all 0.4s ease;
+  border-radius: 50%;
+  transform: translate(-50%, -50%) scale(0);
+}
+
+.btn-primary:hover::before {
+  transform: translate(-50%, -50%) scale(1); /* Expande o efeito ao passar o mouse */
+}
+
+.btn-primary:hover {
+  background-color: #2b3e54;
+  color: #fff;
+  transform: scale(1.1); /* Aumenta o botão ao passar o mouse */
+}
+
+/* Animação de fade para o container */
+.container-fluid {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-top: 20px;
+  animation: fadeInUp 1s ease-out; /* Fade para o container */
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Botões de tamanho */
+.size-buttons {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 10;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.size-buttons button {
+  margin: 5px;
+  border-radius: 5px;
+  padding: 5px 10px;
+  background-color: rgba(255, 255, 255, 0.7);
+  border: 1px solid #fff;
+  color: #333;
+  font-weight: bold;
+}
+
+.size-buttons:hover {
+  opacity: 1; /* Torna os botões visíveis quando o mouse está sobre o card */
+}
+
+/* Efeito de brilho suave nos textos */
+.a {
+  text-align: center;
+  font-family: fantasy;
+  text-transform: uppercase;
+  color: #fff;
+  animation: textGlow 1.5s ease-in-out infinite alternate; /* Efeito de brilho no texto */
+}
+
+@keyframes textGlow {
+  0% {
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.7), 0 0 20px rgba(255, 255, 255, 0.5);
+  }
+  100% {
+    text-shadow: 0 0 20px rgba(255, 255, 255, 1), 0 0 30px rgba(255, 255, 255, 0.7);
+  }
+}
+
+/* Estilo para o carrossel */
+.carousel {
+  max-width: 80%;
+  margin: 0 auto;
+  border: solid 2px white;
+  animation: fadeIn 1s ease-out;
+}
+
+.carousel-inner img {
+  max-height: 400px;
+  object-fit: cover;
+  border: solid 2px white;
+  transition: transform 0.5s ease;
+}
+
+.carousel-inner img:hover {
+  transform: scale(1.05); /* Zoom ao passar o mouse */
+}
+
+
+
+    </style>
+  </head>
+  <body>
+    <nav class="navbar bg-dark border-bottom border-body" data-bs-theme="dark">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">EasyBlock</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="/painel/login.html"><i class="bi bi-house" style="color: white;"> Voltar</i></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="https://www.instagram.com/easy_block25/"><i class="bi bi-instagram" style="color: white;"></i> Instagram</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="https://www.linkedin.com/in/joao-paulo-69996a315/"><i class="bi bi-linkedin" style="color:white;"></i> linkedin</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <i class="bi bi-buildings-fill" style="color: rgb(255, 255, 255);"> Lugares Disponiveis</i>
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="/Cabo/index.html">Cabo de Santo Agostinho</a></li>
+                <li><a class="dropdown-item" href="/gaibu/index.html">Gaibu</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+     
+    <div id="carouselExampleCaptions" class="carousel slide">
+      <div class="carousel-indicators">
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+      </div>
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src="favela.jpeg" class="d-block w-100" alt="...">
+          <div class="carousel-caption d-none d-md-block">
+            <p style="color: rgb(0, 0, 0); font-family: fantasy; text-transform: uppercase; background-color: rgba(255, 255, 255, 0.527);">Ofereça oportunidades únicas para você conhecer quadras incríveis e se conectar com pessoas extraordinárias. Venha fazer parte da nossa plataforma.</p>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <img src="/a-logo-with-a-brazilian-football-theme-t_2JRSluh0RtuOH6FXGJT2ZQ_4GWtPqe0RNysIcjzQWVJzQ.jpeg" class="d-block w-100" alt="...">
+          <div class="carousel-caption d-none d-md-block">
+            <p style="color: rgb(0, 0, 0); font-family: fantasy; text-transform: uppercase; background-color: rgba(255, 255, 255, 0.527);">Nossa plataforma oferece diversas quadras disponíveis, sempre perto de você.</p>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <img src="/a-photo-of-several-real-people-playing-b_csOzvwIaTTqg2yPgyykUzw_z63IAr5zT8emEeDyr7T9qw.jpeg" class="d-block w-100" alt="...">
+          <div class="carousel-caption d-none d-md-block">
+            <p style="color: rgb(0, 0, 0); font-family: fantasy; text-transform: uppercase; background-color: rgba(255, 255, 255, 0.527);">Acessível para todos os públicos, garantindo uma experiência inclusiva</p>
+          </div>
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+
+     <br>
+    <div class="a">
+      <h1 style="color: black;">Lugares onde tem quadras Disponiveis</h1>
+    </div>
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-12 col-sm-6 col-md-5 col-lg-4 mb-3">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Cabo de Santo Agostinho</h5>
+              <p class="card-text">
+                Cabo de Santo Agostinho é um município de Pernambuco, conhecido pelas praias paradisíacas, como Gaibu, e pelo Polo Industrial de Suape. A cidade tem importância histórica e cultural, com destaque para o Cabo de Santo Agostinho.</p>
+                <a href="https://www.google.com/search?gs_ssp=eJzj4tTP1TdINqxIqzRg9FLNyU9OzMmsSjy8_PDifIXkxKR8hZRUheLEvJJ8hcT0_OKSzLyMfADOdRL3&q=localiza%C3%A7%C3%A3o+cabo+de+santo+agostinho&oq=localiza%C3%A7%C3%A3o+cab&gs_lcrp=EgZjaHJvbWUqBwgBEC4YgAQyBggAEEUYOTIHCAEQLhiABDIHCAIQLhiABDIHCAMQABiABDIHCAQQABiABDIHCAUQLhiABDIHCAYQABiABDIHCAcQABiABDIHCAgQABiABNIBCDg1NzFqMGo3qAIAsAIA&sourceid=chrome&ie=UTF-8" class="btn btn-primary">Localização</a>
+              </div>
+          </div>
+        </div>
+        <div class="col-12 col-sm-6 col-md-5 col-lg-4 mb-3">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Gaibu</h5>
+              <p class="card-text">Gaibu é uma praia de Cabo de Santo Agostinho, famosa por suas águas cristalinas e tranquilas. Cercada de falésias e vegetação, é um local ideal para relaxamento, banhos e passeios, atraindo turistas que buscam beleza natural.</p>
+              <a href="https://www.google.com/search?q=localiza%C3%A7%C3%A3o+gaibu&oq=localiza%C3%A7%C3%A3o+gaibu&gs_lcrp=EgZjaHJvbWUyBggAEEUYOTIKCAEQABiABBiiBDIKCAIQABiABBiiBDIKCAMQABiABBiiBNIBCDY2OThqMGo5qAIAsAIB&sourceid=chrome&ie=UTF-8" class="btn btn-primary">Localização</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+    <br>
+    <div class="container mt-4">
+      <div class="carousel-container">
+        <div id="carousel1" class="carousel slide" data-bs-ride="carousel">
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <img src="/Project Easy Block (1)/2quadra (1).jpg" class="d-block w-100" alt="...">
+            </div>
+            <div class="carousel-item">
+              <img src="/Project Easy Block (1)/3quadra (1).jpeg" class="d-block w-100" alt="...">
+            </div>
+          </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#carousel1" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#carousel1" data-bs-slide="next">
+            <span class="carousel-control-next-icon"></span>
+          </button>
+        </div>
+      <br>
+      
+      <div class="container mt-4 d-flex justify-content-center">
+        <img src="n-removebg (1).png" class="img-fluid" alt="...">     </div>
+     <br>
+
+     <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-12 col-sm-6 col-md-5 col-lg-4 mb-3">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Acessibilidade</h5>
+              <p class="card-text">As quadras são projetadas para garantir acessibilidade a todas as pessoas, independentemente de sua condição social ou física.</p>
+              <a href="https://www.google.com/search?q=import%C3%A2ncia+da+acessibilidade&oq=importancia+da+ace&gs_lcrp=EgZjaHJvbWUqBwgBEAAYgAQyBggAEEUYOTIHCAEQABiABDIHCAIQABiABDIHCAMQABiABDIICAQQABgWGB4yCAgFEAAYFhgeMggIBhAAGBYYHjIICAcQABgWGB4yCAgIEAAYFhgeMggICRAAGBYYHtIBCDY4ODdqMGo3qAIAsAIA&sourceid=chrome&ie=UTF-8" class="btn btn-primary">importância da acessibilidade</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-sm-6 col-md-5 col-lg-4 mb-3">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Qualquer Pessoa pode jogar!</h5>
+              <p class="card-text">As quadras são projetadas para garantir acessibilidade a todas as pessoas, independentemente de seu gênero.</p>
+              <a href="https://ludopedio.org.br/poroutrofutebol-mulheres/?utm_source=google-ads&utm_campaign=aumento-acessos-nov-24&utm_adgroug=futebol-mulheres&utm_ad=responsivo-1&utm_keyword=hist%C3%B3ria%20do%20futebol%20feminino%20no%20brasil&utm_matchtype=b&utm_device=c&gad_source=1&gclid=CjwKCAiAtYy9BhBcEiwANWQQL_T-VlMlZlSHkaJQEMaVJxPE4zTsijdbrPh8ODqvnmMEijHEoPoiABoCHfUQAvD_BwE" class="btn btn-primary"> Mulheres no futebol</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+      
+    <div class="container mt-4">
+      <div class="carousel-container">
+        <div id="carousel1" class="carousel slide" data-bs-ride="carousel">
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <img src="/Project Easy Block (1)/5quadra (1).jpeg" class="d-block w-100" alt="...">
+            </div>
+            <div class="carousel-item">
+              <img src="/Project Easy Block (1)/vlei-futebol-karat-e-ciclismo-marcam-o-fim-de-semana-do-ipojuca-fotos_14 (1).jpg" class="d-block w-100" alt="...">
+            </div>
+          </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#carousel1" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#carousel1" data-bs-slide="next">
+            <span class="carousel-control-next-icon"></span>
+          </button>
+        </div>
+        <div class="container mt-4 d-flex justify-content-center">
+          <h1 style="color: black; font-family: fantasy; text-transform: uppercase;">Beneficios do EasyBlock</h1>          
+         </div>
+         <br>
+         
+         <div class="container">
+          <div class="accordion" id="accordionPanelsStayOpenExample">
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button class="accordion-button p-2 fs-6" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
+                  Visibilidade
+                </button>
+              </h2>
+              <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show">
+                <div class="accordion-body">
+                  <strong>Maior visibilidade para o seu negócio</strong> - Com o <strong>EasyBlock</strong>, você garante que sua quadra tenha maior exposição online. O site é otimizado para que os clientes possam encontrar facilmente o seu espaço para reservas, aumentando as chances de novos usuários. Além disso, nossa plataforma oferece ferramentas que destacam sua quadra em buscas locais.
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button class="accordion-button collapsed p-2 fs-6" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false" aria-controls="panelsStayOpen-collapseTwo">
+                  Mais clientes para o proprietário
+                </button>
+              </h2>
+              <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse">
+                <div class="accordion-body">
+                  <strong>Atração de mais clientes para o proprietário</strong> - O <strong>EasyBlock</strong> conecta você com um público maior e mais diversificado. Ao disponibilizar sua quadra na plataforma, você permite que mais pessoas descubram e reservem seu espaço, o que pode resultar em maior lucro e visibilidade no mercado local de esportes.
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button class="accordion-button collapsed p-2 fs-6" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="false" aria-controls="panelsStayOpen-collapseThree">
+                  Facilidade
+                </button>
+              </h2>
+              <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse">
+                <div class="accordion-body">
+                  <strong>Simples e fácil de usar</strong> - O <strong>EasyBlock</strong> foi desenvolvido para ser fácil de usar, tanto para os proprietários quanto para os clientes. Com um sistema intuitivo de reservas, o processo de disponibilizar e reservar quadras é rápido e sem complicação. Além disso, nossa plataforma oferece suporte contínuo para garantir que sua experiência seja sempre positiva.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        
+        <div class="container mt-4 d-flex justify-content-center">
+          <img src="/agra.jpeg" class="img-fluid" alt="...">     </div>
+       <br>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  </body>
+</html>
